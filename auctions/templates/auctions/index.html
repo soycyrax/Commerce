@@ -1,6 +1,26 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <h2>Active Listings</h2>
-    <a href="{% url 'create' %}">Create a new listing.</a>
+    {% for listing in listings %}
+        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+        
+            <h3>
+            <a href="{% url 'listing_page' listing.id %}">
+                {{ listing.title }}
+            </a>
+            </h3>
+
+            {% if listing.image_url %}
+            <img src="{{ listing.image_url }}" width="200">
+            {% endif %}
+
+            <p>{{ listing.description }}</p>
+
+            <p>
+            Price: ${{ listing.starting_bid }}
+            </p>
+
+        </div>
+    {% endfor %}
+
 {% endblock %}
