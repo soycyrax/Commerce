@@ -8,6 +8,13 @@
             <a href="{% url 'listing_page' listing.id %}">
                 {{ listing.title }}
             </a>
+            
+            {% if listing.id in watchlist_ids %}
+                <span class="badge badge-warning ml-2">
+                    In Watchlist
+                </span>
+            {% endif %}
+
             </h3>
 
             {% if listing.image_url %}

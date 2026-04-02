@@ -21,12 +21,27 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'categories' %}">Categories</a>
+            </li>
             {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'create' %}">Create Listing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="{% url 'watchlist' %}">
+                    Watchlist
+
+                    {% if watchlist_count > 0 %}
+                        <span class="badge badge-danger"
+                            style="position:absolute; top:0; right:-10px;">
+                            {{ watchlist_count }}
+                        </span>
+                    {% endif %}
+                    </a>
                 </li>
             {% else %}
                 <li class="nav-item">

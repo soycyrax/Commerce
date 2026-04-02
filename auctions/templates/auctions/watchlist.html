@@ -1,0 +1,48 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<h2 class="mt-3">My Watchlist</h2>
+
+{% if listings %}
+
+    {% for listing in listings %}
+        <div class="card p-3 mt-3">
+            
+            <h4>
+                <a href="{% url 'listing_page' listing.id %}">
+                    {{ listing.title }}
+                </a>
+            </h4>
+
+            {% if listing.image_url %}
+                <img src="{{ listing.image_url }}" width="200">
+            {% endif %}
+
+            <p>{{ listing.description }}</p>
+
+            <p>
+                <strong>Price:</strong>
+                ${{ listing.current_price|default:listing.starting_bid }}
+            </p>
+
+            <!-- Remove from Watchlist -->
+            <form action="{% url 'toggle_watchlist' listing.id %}" method="POST">
+                {% csrf_token %}
+                <button class="btn btn-danger btn-sm">
+                    Remove from Watchlist
+                </button>
+            </form>
+
+        </div>
+    {% endfor %}
+
+{% else %}
+
+    <div class="mt-4">
+        <p>Your watchlist is empty.</p>
+    </div>
+
+{% endif %}
+
+{% endblock %}
