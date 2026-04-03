@@ -3,7 +3,7 @@
 {% block body %}
 
 <!-- Listing Details -->
-<div class="card p-4 mt-4 mb-3">
+<div class="listing-card">
     <h1>
         {{ listing.title }}
 
@@ -44,7 +44,7 @@
 
 
 <!-- Bidding Section -->
-<div class="card p-4 mt-4 mb-3">
+<div class="listing-card">
     <h4>Place a Bid</h4>
     {% if listing.is_active %}
 
@@ -76,7 +76,7 @@
 </div>
 
 <!-- Comments Section -->
-<div class="card p-4 mt-4 mb-5">
+<div class="listing-card">
     <h4>Comments</h4>
     <br>
     {% for comment in comments %}
@@ -101,7 +101,7 @@
 
 <!-- Close Auction (Owner only) -->
 {% if user == listing.created_by and listing.is_active %}
-<div class="ml-3 mb-4">
+<div class="ml-4 mb-4 mt-4">
     <form action="{% url 'close_auction' listing.id %}" method="POST">
         {% csrf_token %}
         <button class="btn btn-danger">Close Auction</button>

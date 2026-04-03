@@ -2,7 +2,7 @@
 
 {% block body %}
     {% for listing in listings %}
-        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+        <div class="listing-card">
         
             <h3>
             <a href="{% url 'listing_page' listing.id %}">
