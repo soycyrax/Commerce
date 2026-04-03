@@ -1,9 +1,9 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <div class="listing-card">
-        <h2>Register</h2>
-
+    
+    <h2 class="p-3">Register</h2>
+    <div class="listing-card p-4">
         {% if message %}
             <div>{{ message }}</div>
         {% endif %}
@@ -22,7 +22,7 @@
             <div class="form-group">
                 <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
             </div>
-            <div class="p-2">
+            <div class="mt-4 mb-2">
                 <input class="btn btn-primary" type="submit" value="Register">
             </div>
         </form>

@@ -1,9 +1,9 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <div class="listing-card">
-        <h2>Login</h2>
-
+    
+    <h2 class="p-3">Login</h2>
+    <div class="listing-card p-4">
         {% if message %}
             <div>{{ message }}</div>
         {% endif %}
@@ -16,7 +16,9 @@
             <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="Password">
             </div>
-            <input class="btn btn-primary" type="submit" value="Login">
+            <div class="mt-4 mb-2">
+                <input class="btn btn-primary" type="submit" value="Login">
+            </div>
         </form>
 
         Don't have an account? <a href="{% url 'register' %}">Register here.</a>
