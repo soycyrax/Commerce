@@ -1,8 +1,9 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <div class="listing-card">
-        <h1>Create New Listing</h1>
+    
+    <h2 class="p-3">Create New Listing</h2>
+    <div class="listing-card p-4">
         <br>
         <form action="{% url 'create' %}" method="post">
             {% csrf_token %}
@@ -27,7 +28,7 @@
                     <option value="Home">Home</option>
                 </select>
             </div>
-            <div class="p-2">
+            <div class="mt-4 mb-2">
                 <input class="btn btn-primary" type="submit" value="Create">
             </div>
         </form>

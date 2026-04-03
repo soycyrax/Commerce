@@ -2,12 +2,12 @@
 
 {% block body %}
 
-<h2 class="mt-3">My Watchlist</h2>
+<h2 class="p-3">My Watchlist</h2>
 
 {% if listings %}
 
     {% for listing in listings %}
-        <div class="listing-card">
+        <div class="listing-card p-4">
             
             <h4>
                 <a href="{% url 'listing_page' listing.id %}">
